@@ -4,6 +4,7 @@
 set.seed(17328)
 
 train <- read.csv('train.csv',header=T,stringsAsFactors=F)
+test <- read.csv('test.csv',header=T,stringsAsFactors=F)
 
 # Split training into training / test
 t.index <- which(runif(nrow(train)) > .5)
