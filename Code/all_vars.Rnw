@@ -1,0 +1,481 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\title{Stat 101C Final}
+\author{Kyle Colton}
+\usepackage{Sweave}
+\begin{document}
+\maketitle%1
+<<echo=F>>=
+train <- read.csv('train.csv',header=T)
+@
+\section{deed\_type}%2
+<<fig=T>>=
+plot(totalActualVal ~ deed_type,data=train)
+summary(lm(totalActualVal ~ deed_type,data=train))
+@
+\section{section}%3
+<<fig=T>>=
+plot(totalActualVal ~ section,data=train)
+summary(lm(totalActualVal ~ poly(section,3),data=train))
+@
+\section{township}%4
+<<fig=T>>=
+plot(totalActualVal ~ township,data=train)
+summary(lm(totalActualVal ~ township,data=train))
+@
+\section{range}%5
+<<fig=T>>=
+plot(totalActualVal ~ range,data=train)
+summary(lm(totalActualVal ~ poly(range,3),data=train))
+@
+\section{block}%6
+<<fig=T>>=
+plot(totalActualVal ~ block,data=train)
+summary(lm(totalActualVal ~ block,data=train))
+@
+\section{lot}%7
+<<fig=T>>=
+plot(totalActualVal ~ lot,data=train)
+summary(lm(totalActualVal ~ lot,data=train))
+@
+\section{pct\_own}%8
+<<fig=T>>=
+plot(totalActualVal ~ pct_own,data=train)
+summary(lm(totalActualVal ~ poly(pct_own,3),data=train))
+@
+\section{taxArea}%9
+<<fig=T>>=
+plot(totalActualVal ~ taxArea,data=train)
+summary(lm(totalActualVal ~ poly(taxArea,3),data=train))
+@
+\section{nh}%10
+<<fig=T>>=
+plot(totalActualVal ~ nh,data=train)
+summary(lm(totalActualVal ~ poly(nh,3),data=train))
+@
+\section{mill\_levy}%11
+<<fig=T>>=
+plot(totalActualVal ~ mill_levy,data=train)
+summary(lm(totalActualVal ~ poly(mill_levy,3),data=train))
+@
+\section{designCodeDscr}%12
+<<fig=T>>=
+plot(totalActualVal ~ designCodeDscr,data=train)
+summary(lm(totalActualVal ~ poly(designCodeDscr,3),data=train))
+@
+\section{qualityCodeDscr}%13
+% Missing values not allowed in 'poly'
+<<fig=T>>=
+plot(totalActualVal ~ qualityCodeDscr,data=train)
+summary(lm(totalActualVal ~ qualityCodeDscr,data=train))
+@
+\section{ConstCodeDscr}%14
+<<fig=T>>=
+plot(totalActualVal ~ ConstCodeDscr,data=train)
+summary(lm(totalActualVal ~ ConstCodeDscr,data=train))
+@
+\section{builtYear}%15
+<<fig=T>>=
+plot(totalActualVal ~ builtYear,data=train)
+summary(lm(totalActualVal ~ poly(builtYear,3),data=train))
+@
+\section{CompCode}%16
+<<fig=T>>=
+plot(totalActualVal ~ CompCode,data=train)
+summary(lm(totalActualVal ~ poly(CompCode,3),data=train))
+@
+\section{bsmtSF}%17
+<<fig=T>>=
+plot(totalActualVal ~ bsmtSF,data=train)
+summary(lm(totalActualVal ~ poly(bsmtSF,3),data=train))
+@
+\section{bsmtTypeDscr}%18
+<<fig=T>>=
+plot(totalActualVal ~ bsmtTypeDscr,data=train)
+summary(lm(totalActualVal ~ poly(bsmtTypeDscr,3),data=train))
+@
+\section{carStorageSF}%19
+<<fig=T>>=
+plot(totalActualVal ~ carStorageSF,data=train)
+summary(lm(totalActualVal ~ poly(carStorageSF,3),data=train))
+@
+\section{carStorageTypeDscr}%20
+<<fig=T>>=
+plot(totalActualVal ~ carStorageTypeDscr,data=train)
+summary(lm(totalActualVal ~ poly(carStorageTypeDscr,3),data=train))
+@
+\section{nbrBedRoom}%21
+<<fig=T>>=
+plot(totalActualVal ~ nbrBedRoom,data=train)
+summary(lm(totalActualVal ~ poly(nbrBedRoom,3),data=train))
+@
+\section{nbrRoomsNobath}%22
+<<fig=T>>=
+plot(totalActualVal ~ nbrRoomsNobath,data=train)
+summary(lm(totalActualVal ~ poly(nbrRoomsNobath,3),data=train))
+@
+\section{mainfloorSF}%23
+<<fig=T>>=
+plot(totalActualVal ~ mainfloorSF,data=train)
+summary(lm(totalActualVal ~ poly(mainfloorSF,3),data=train))
+@
+\section{nbrThreeQtrBaths}%24
+<<fig=T>>=
+plot(totalActualVal ~ nbrThreeQtrBaths,data=train)
+summary(lm(totalActualVal ~ poly(nbrThreeQtrBaths,3),data=train))
+@
+\section{nbrFullBaths}%25
+<<fig=T>>=
+plot(totalActualVal ~ nbrFullBaths,data=train)
+summary(lm(totalActualVal ~ poly(nbrFullBaths,3),data=train))
+@
+\section{nbrHalfBaths}%26
+<<fig=T>>=
+plot(totalActualVal ~ nbrHalfBaths,data=train)
+summary(lm(totalActualVal ~ poly(nbrHalfBaths,3),data=train))
+@
+\section{TotalFinishedSF}%27
+<<fig=T>>=
+plot(totalActualVal ~ TotalFinishedSF,data=train)
+summary(lm(totalActualVal ~ poly(TotalFinishedSF,3),data=train))
+@
+\section{AcDscr}%28
+<<fig=T>>=
+plot(totalActualVal ~ AcDscr,data=train)
+summary(lm(totalActualVal ~ AcDscr,data=train))
+@
+\section{HeatingDscr}%29
+<<fig=T>>=
+plot(totalActualVal ~ HeatingDscr,data=train)
+summary(lm(totalActualVal ~ HeatingDscr,data=train))
+@
+\section{ExtWallDscrPrim}%30
+<<fig=T>>=
+plot(totalActualVal ~ ExtWallDscrPrim,data=train)
+summary(lm(totalActualVal ~ ExtWallDscrPrim,data=train))
+@
+\section{ExtWallDscrSec}%31
+<<fig=T>>=
+plot(totalActualVal ~ ExtWallDscrSec,data=train)
+summary(lm(totalActualVal ~ ExtWallDscrSec,data=train))
+@
+\section{IntWallDscr}%32
+<<fig=T>>=
+plot(totalActualVal ~ IntWallDscr,data=train)
+summary(lm(totalActualVal ~ IntWallDscr,data=train))
+@
+\section{Roof\_CoverDscr}%33
+<<fig=T>>=
+plot(totalActualVal ~ Roof_CoverDscr,data=train)
+summary(lm(totalActualVal ~ Roof_CoverDscr,data=train))
+@
+\section{landUnitValue}%34
+<<fig=T>>=
+plot(totalActualVal ~ landUnitValue,data=train)
+summary(lm(totalActualVal ~ poly(landUnitValue,3),data=train))
+@
+\section{landUnitType}%35
+<<fig=T>>=
+plot(totalActualVal ~ landUnitType,data=train)
+summary(lm(totalActualVal ~ landUnitType,data=train))
+@
+\section{GIS\_sqft}%36
+<<fig=T>>=
+plot(totalActualVal ~ GIS_sqft,data=train)
+summary(lm(totalActualVal ~ poly(GIS_sqft,3),data=train))
+@
+\section{GIS\_acreage}%37
+<<fig=T>>=
+plot(totalActualVal ~ GIS_acreage,data=train)
+summary(lm(totalActualVal ~ poly(GIS_acreage,3),data=train))
+@
+\section{Shape\_Leng}%38
+<<fig=T>>=
+plot(totalActualVal ~ Shape_Leng,data=train)
+summary(lm(totalActualVal ~ poly(Shape_Leng,3),data=train))
+@
+\section{Shape\_Area}%39
+<<fig=T>>=
+plot(totalActualVal ~ Shape_Area,data=train)
+summary(lm(totalActualVal ~ poly(Shape_Area,3),data=train))
+@
+\section{POP2010}%40
+<<fig=T>>=
+plot(totalActualVal ~ POP2010,data=train)
+summary(lm(totalActualVal ~ poly(POP2010,3),data=train))
+@
+\section{HISPANIC}%41
+<<fig=T>>=
+plot(totalActualVal ~ HISPANIC,data=train)
+summary(lm(totalActualVal ~ poly(HISPANIC,3),data=train))
+@
+\section{PCT\_HISP}%42
+<<fig=T>>=
+plot(totalActualVal ~ PCT_HISP,data=train)
+summary(lm(totalActualVal ~ poly(PCT_HISP,3),data=train))
+@
+\section{WHITE\_NH}%43
+<<fig=T>>=
+plot(totalActualVal ~ WHITE_NH,data=train)
+summary(lm(totalActualVal ~ poly(WHITE_NH,3),data=train))
+@
+\section{PCT\_WHITE}
+<<fig=T>>=
+plot(totalActualVal ~ PCT_WHITE,data=train)
+summary(lm(totalActualVal ~ poly(PCT_WHITE,3),data=train))
+@
+\section{BLACK\_NH}
+<<fig=T>>=
+plot(totalActualVal ~ BLACK_NH,data=train)
+summary(lm(totalActualVal ~ poly(BLACK_NH,3),data=train))
+@
+\section{PCT\_BLACK}
+<<fig=T>>=
+plot(totalActualVal ~ PCT_BLACK,data=train)
+summary(lm(totalActualVal ~ poly(PCT_BLACK,3),data=train))
+@
+\section{AMERIND\_NH}
+<<fig=T>>=
+plot(totalActualVal ~ AMERIND_NH,data=train)
+summary(lm(totalActualVal ~ poly(AMERIND_NH,3),data=train))
+@
+\section{PCT\_AMIND}
+<<fig=T>>=
+plot(totalActualVal ~ PCT_AMIND,data=train)
+summary(lm(totalActualVal ~ poly(PCT_AMIND,3),data=train))
+@
+\section{ASIAN\_NH}
+<<fig=T>>=
+plot(totalActualVal ~ ASIAN_NH,data=train)
+summary(lm(totalActualVal ~ poly(ASIAN_NH,3),data=train))
+@
+\section{PCT\_ASIAN}
+<<fig=T>>=
+plot(totalActualVal ~ PCT_ASIAN,data=train)
+summary(lm(totalActualVal ~ poly(PCT_ASIAN,3),data=train))
+@
+\section{HAWPAC\_NH}
+<<fig=T>>=
+plot(totalActualVal ~ HAWPAC_NH,data=train)
+summary(lm(totalActualVal ~ poly(HAWPAC_NH,3),data=train))
+@
+\section{PCT\_HAWPI}
+<<fig=T>>=
+plot(totalActualVal ~ PCT_HAWPI,data=train)
+summary(lm(totalActualVal ~ poly(PCT_HAWPI,3),data=train))
+@
+\section{OTHER\_NH}
+<<fig=T>>=
+plot(totalActualVal ~ OTHER_NH,data=train)
+summary(lm(totalActualVal ~ poly(OTHER_NH,3),data=train))
+@
+\section{PCT\_OTHER}
+<<fig=T>>=
+plot(totalActualVal ~ PCT_OTHER,data=train)
+summary(lm(totalActualVal ~ poly(PCT_OTHER,3),data=train))
+@
+\section{MULT\_NH}
+<<fig=T>>=
+plot(totalActualVal ~ MULT_NH,data=train)
+summary(lm(totalActualVal ~ poly(MULT_NH,3),data=train))
+@
+\section{PCT\_MULT}
+<<fig=T>>=
+plot(totalActualVal ~ PCT_MULT,data=train)
+summary(lm(totalActualVal ~ poly(PCT_MULT,3),data=train))
+@
+\section{MALE}
+<<fig=T>>=
+plot(totalActualVal ~ MALE,data=train)
+summary(lm(totalActualVal ~ poly(MALE,3),data=train))
+@
+\section{PCT\_MALE}
+<<fig=T>>=
+plot(totalActualVal ~ PCT_MALE,data=train)
+summary(lm(totalActualVal ~ poly(PCT_MALE,3),data=train))
+@
+\section{FEMALE}
+<<fig=T>>=
+plot(totalActualVal ~ FEMALE,data=train)
+summary(lm(totalActualVal ~ poly(FEMALE,3),data=train))
+@
+\section{PCT\_FEM}
+<<fig=T>>=
+plot(totalActualVal ~ PCT_FEM,data=train)
+summary(lm(totalActualVal ~ poly(PCT_FEM,3),data=train))
+@
+\section{AGE65PLUS}
+<<fig=T>>=
+plot(totalActualVal ~ AGE65PLUS,data=train)
+summary(lm(totalActualVal ~ poly(AGE65PLUS,3),data=train))
+@
+\section{PCT\_65PLUS}
+<<fig=T>>=
+plot(totalActualVal ~ PCT_65PLUS,data=train)
+summary(lm(totalActualVal ~ poly(PCT_65PLUS,3),data=train))
+@
+\section{AGEUNDER18}
+<<fig=T>>=
+plot(totalActualVal ~ AGEUNDER18,data=train)
+summary(lm(totalActualVal ~ poly(AGEUNDER18,3),data=train))
+@
+\section{PCT\_U18}
+<<fig=T>>=
+plot(totalActualVal ~ PCT_U18,data=train)
+summary(lm(totalActualVal ~ poly(PCT_U18,3),data=train))
+@
+\section{AGEUNDER10}
+<<fig=T>>=
+plot(totalActualVal ~ AGEUNDER10,data=train)
+summary(lm(totalActualVal ~ poly(AGEUNDER10,3),data=train))
+@
+\section{PCT\_U10}
+<<fig=T>>=
+plot(totalActualVal ~ PCT_U10,data=train)
+summary(lm(totalActualVal ~ poly(PCT_U10,3),data=train))
+@
+\section{MED\_AGE}
+<<fig=T>>=
+plot(totalActualVal ~ MED_AGE,data=train)
+summary(lm(totalActualVal ~ poly(MED_AGE,3),data=train))
+@
+\section{MED\_MALE}
+<<fig=T>>=
+plot(totalActualVal ~ MED_MALE,data=train)
+summary(lm(totalActualVal ~ poly(MED_MALE,3),data=train))
+@
+\section{MED\_FEMALE}
+<<fig=T>>=
+plot(totalActualVal ~ MED_FEMALE,data=train)
+summary(lm(totalActualVal ~ poly(MED_FEMALE,3),data=train))
+@
+\section{HOUSEHOLDS}
+<<fig=T>>=
+plot(totalActualVal ~ HOUSEHOLDS,data=train)
+summary(lm(totalActualVal ~ poly(HOUSEHOLDS,3),data=train))
+@
+\section{FAMILY\_HH}
+<<fig=T>>=
+plot(totalActualVal ~ FAMILY_HH,data=train)
+summary(lm(totalActualVal ~ poly(FAMILY_HH,3),data=train))
+@
+\section{HUSB\_WIFE}
+<<fig=T>>=
+plot(totalActualVal ~ HUSB_WIFE,data=train)
+summary(lm(totalActualVal ~ poly(HUSB_WIFE,3),data=train))
+@
+\section{OTH\_FAMILY}
+<<fig=T>>=
+plot(totalActualVal ~ OTH_FAMILY,data=train)
+summary(lm(totalActualVal ~ poly(OTH_FAMILY,3),data=train))
+@
+\section{NON\_FAM}
+<<fig=T>>=
+plot(totalActualVal ~ NON_FAM,data=train)
+summary(lm(totalActualVal ~ poly(NON_FAM,3),data=train))
+@
+\section{AVG\_HH}
+<<fig=T>>=
+plot(totalActualVal ~ AVG_HH,data=train)
+summary(lm(totalActualVal ~ poly(AVG_HH,3),data=train))
+@
+\section{HH\_W\_NONR}
+<<fig=T>>=
+plot(totalActualVal ~ HH_W_NONR,data=train)
+summary(lm(totalActualVal ~ poly(HH_W_NONR,3),data=train))
+@
+\section{HH\_N\_NONR}
+<<fig=T>>=
+plot(totalActualVal ~ HH_N_NONR,data=train)
+summary(lm(totalActualVal ~ poly(HH_N_NONR,3),data=train))
+@
+\section{AVG\_FAM}
+<<fig=T>>=
+plot(totalActualVal ~ AVG_FAM,data=train)
+summary(lm(totalActualVal ~ poly(AVG_FAM,3),data=train))
+@
+\section{GQ\_POP}
+<<fig=T>>=
+plot(totalActualVal ~ GQ_POP,data=train)
+summary(lm(totalActualVal ~ poly(GQ_POP,3),data=train))
+@
+\section{HOUSING\_UN}
+<<fig=T>>=
+plot(totalActualVal ~ HOUSING_UN,data=train)
+summary(lm(totalActualVal ~ poly(HOUSING_UN,3),data=train))
+@
+\section{PCT\_OCC}
+<<fig=T>>=
+plot(totalActualVal ~ PCT_OCC,data=train)
+summary(lm(totalActualVal ~ poly(PCT_OCC,3),data=train))
+@
+\section{VACANT}
+<<fig=T>>=
+plot(totalActualVal ~ VACANT,data=train)
+summary(lm(totalActualVal ~ poly(VACANT,3),data=train))
+@
+\section{PCT\_VAC}
+<<fig=T>>=
+plot(totalActualVal ~ PCT_VAC,data=train)
+summary(lm(totalActualVal ~ poly(PCT_VAC,3),data=train))
+@
+\section{OWNER}
+<<fig=T>>=
+plot(totalActualVal ~ OWNER,data=train)
+summary(lm(totalActualVal ~ poly(OWNER,3),data=train))
+@
+\section{PCT\_OWN}
+<<fig=T>>=
+plot(totalActualVal ~ PCT_OWN,data=train)
+summary(lm(totalActualVal ~ poly(PCT_OWN,3),data=train))
+@
+\section{RENTER}
+<<fig=T>>=
+plot(totalActualVal ~ RENTER,data=train)
+summary(lm(totalActualVal ~ poly(RENTER,3),data=train))
+@
+\section{PCT\_RENT}
+<<fig=T>>=
+plot(totalActualVal ~ PCT_RENT,data=train)
+summary(lm(totalActualVal ~ poly(PCT_RENT,3),data=train))
+@
+\section{V\_FORRENT}
+<<fig=T>>=
+plot(totalActualVal ~ V_FORRENT,data=train)
+summary(lm(totalActualVal ~ poly(V_FORRENT,3),data=train))
+@
+\section{V\_R\_NOTOCC}
+<<fig=T>>=
+plot(totalActualVal ~ V_R_NOTOCC,data=train)
+summary(lm(totalActualVal ~ poly(V_R_NOTOCC,3),data=train))
+@
+\section{V\_FORSALE}
+<<fig=T>>=
+plot(totalActualVal ~ V_FORSALE,data=train)
+summary(lm(totalActualVal ~ poly(V_FORSALE,3),data=train))
+@
+\section{V\_S\_NOTOCC}
+<<fig=T>>=
+plot(totalActualVal ~ V_S_NOTOCC,data=train)
+summary(lm(totalActualVal ~ poly(V_S_NOTOCC,3),data=train))
+@
+\section{V\_SEASONAL}
+<<fig=T>>=
+plot(totalActualVal ~ V_SEASONAL,data=train)
+summary(lm(totalActualVal ~ poly(V_SEASONAL,3),data=train))
+@
+\section{V\_MIGRANT}
+<<fig=T>>=
+plot(totalActualVal ~ V_MIGRANT,data=train)
+summary(lm(totalActualVal ~ V_MIGRANT,data=train))
+@
+\section{V\_OTHER}
+<<fig=T>>=
+plot(totalActualVal ~ V_OTHER,data=train)
+summary(lm(totalActualVal ~ poly(V_OTHER,3),data=train))
+@
+\end{document}
