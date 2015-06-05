@@ -22,6 +22,7 @@ test$deed_simple <- as.character(test$deed)
 test$deed_simple[-which(test$deed_type %in% c('WD','SJ','SW','RD'))] <- 'Other'
 test$deed_simple <- as.factor(test$deed_simple)
 
+# Write
 mod4 <- predict(model4, test)
 mod4 <- as.data.frame(cbind(1:10000,mod4))
 names(mod4) <- c('id','totalActualVal')
