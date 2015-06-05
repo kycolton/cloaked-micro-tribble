@@ -8,7 +8,11 @@ train$deed_simple <- as.factor(train$deed_simple)
 
 vars <- c(4,8:9,13,16:18,21,23:25,27:31,48,71,89,99)
 
+tic <- proc.time()
 model4 <- lm(totalActualVal ~ . + .:., data=train[,vars])
+toc <- proc.time()
+toc - tic
+gc()
 
 summary(model4)
 
