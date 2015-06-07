@@ -1,4 +1,5 @@
-*.R~
 Code/names.csv
 *.RData
 *.Rhistory
+*.R
+*~
