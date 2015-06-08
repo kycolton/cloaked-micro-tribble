@@ -6,17 +6,7 @@ train <- read.csv('Data/train.csv',header=T)
 test <- read.csv('Data/test.csv',header=T)
 
 # variables to be used (taken from mod4)
-vars <- c(4,9,99,8,13:32,34:40,44,46,48,50,52,54,56,58,60,62,64,66,68,70,72:85,87,89,91,92,95:97)
-
-# Recode Deed_type in training data
-train$deed_simple <- as.character(train$deed_type)
-train$deed_simple[-which(train$deed_type %in% c('WD','SJ','SW','RD'))] <- 'Other'
-train$deed_simple <- as.factor(train$deed_simple)
-
-# Recode Deed_type in test data
-test$deed_simple <- as.character(test$deed_type)
-test$deed_simple[-which(test$deed_type %in% c('WD','SJ','SW','RD'))] <- 'Other'
-test$deed_simple <- as.factor(test$deed_simple)
+vars <- c(4,9,8,13:32,34:40,44,46,48,50,52,54,56,58,60,62,64,66,68,70,72:85,87,89,91,92,95:97)
 
 # Set seed
 set.seed(53924)
