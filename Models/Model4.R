@@ -28,4 +28,3 @@ names(mod4) <- c('id','totalActualVal')
 head(mod4)
 mod4$totalActualVal <- abs(mod4$totalActualVal)
 write.csv(mod4,file='mod4_4.csv',row.names=F)
-
